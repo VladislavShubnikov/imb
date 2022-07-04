@@ -15,6 +15,7 @@ There are 2 projects inside this repository:
 3. Project autodocumentation is completely missing.
 4. There is no zoom in/out, pan functionality in app UI for recognition resuts.
 5. Binarized comparison function: only 2 first generated images are comparable.
+6. Stup automatic code quality check (CirclCI or similar service)
 
 ## Code style:
 
@@ -86,4 +87,13 @@ ocr_recognise(fz_context *ctx, ...
 In this case we can process recognized symbols (not words) one by one,
 also detected font metrics will be received into callback to draw
 recognized text over source image more precisely.
+
+
+## References
+
+[Leptonica library](https://github.com/danbloomberg/leptonica)
+
+[Tesseract library](https://github.com/tesseract-ocr/tesseract)
+
+[MuPDF library](https://github.com/ArtifexSoftware/mupdf)
 
