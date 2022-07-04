@@ -88,6 +88,12 @@ In this case we can process recognized symbols (not words) one by one,
 also detected font metrics will be received into callback to draw
 recognized text over source image more precisely.
 
+### Standard deviation matrix calculation optimization
+Fast method of calculation standard deviation is implemented
+in src/engine/FastMeanStd.cpp, line 65
+![description of method is here](doc/std_formula.png)
+
+
 
 ## References
 
@@ -96,4 +102,6 @@ recognized text over source image more precisely.
 [Tesseract library](https://github.com/tesseract-ocr/tesseract)
 
 [MuPDF library](https://github.com/ArtifexSoftware/mupdf)
+
+[Integral image sum algorithm explanation](https://levelup.gitconnected.com/the-integral-image-4df3df5dce35)
 
