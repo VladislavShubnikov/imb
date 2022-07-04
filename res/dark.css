@@ -1,0 +1,337 @@
+*{
+    background-color: #252528;
+    color: #F2F2F2;
+
+}
+
+
+QComboBox:disabled {
+    background-color: #9B9FA7;
+}
+
+QLineEdit:disabled {
+    background-color: #252528;
+    border-color: #252528;
+}
+
+QToolBar {
+    border: none;
+}
+
+QPushButton {
+    height: 1em;
+    background: #4A4A4F;
+    border-radius: 4px;
+    padding: 0.3em 0.5em;
+}
+
+QPushButton:hover {
+    background: #57575C;
+}
+
+QPushButton:pressed {
+    background: #636369;
+}
+
+QPushButton:checked {
+    background: #0F0F10;
+}
+
+QToolButton:checked {
+    background: #0F0F10;
+}
+
+QPushButton::menu-indicator{ width:0px; }
+
+QCheckBox::indicator:!checked {
+    width: 1.2em;
+    height: 1.2em;
+    image: url(:/icons/Checkbox Off.svg);
+}
+
+QCheckBox::indicator:disabled:!checked {
+    width: 1.2em;
+    height: 1.2em;
+    image: url(:/icons/Checkbox Off Disabled.svg);
+}
+
+QCheckBox::indicator:disabled:checked {
+    width: 1.2em;
+    height: 1.2em;
+    image: url(:/icons/Checkbox On Disabled.svg);
+}
+
+QCheckBox::indicator:checked {
+    width: 1.2em;
+    height: 1.2em;
+    image: url(:/icons/Checkbox On.svg);
+}
+
+QCheckBox::indicator:disabled:checked {
+    width: 1.2em;
+    height: 1.2em;
+    image: url(:/icons/Checkbox On Disabled.svg);
+}
+
+QCheckBox::indicator:indeterminate {
+    width: 1.2em;
+    height: 1.2em;
+    image: url(:/icons/Checkbox Indeterminate.svg);
+}
+
+QCheckBox[class=Toggle]::indicator:disabled:!checked {
+    width: 3em;
+    height: 2em;
+    image: url(:/icons/toggle_off_disabled.svg);
+}
+
+QCheckBox[class=Toggle]::indicator:disabled:checked {
+    width: 3em;
+    height: 2em;
+    image: url(:/icons/toggle_on_disabled.svg);
+}
+
+QCheckBox[class=Toggle]::indicator {
+    width: 3em;
+    height: 2em;
+    image: url(:/icons/toggle_off.svg);
+}
+
+QCheckBox[class=Toggle]::indicator:checked {
+    width: 3em;
+    height: 2em;
+    image: url(:/icons/toggle_on.svg);
+}
+
+QCheckBox[class=Toggle]::indicator:indeterminate {
+    width: 3em;
+    height: 2em;
+    image: url(:/icons/toggle_on.svg);
+}
+
+
+QCheckBox#importDetailsCheckBox::indicator {
+    width: 3em;
+    height: 2em;
+    image: url(:/icons/Chevron Small Right.svg);
+}
+
+    QCheckBox#importDetailsCheckBox::indicator:checked {
+        width: 3em;
+        height: 2em;
+        image: url(:/icons/Chevron Small Down.svg);
+    }
+
+
+QAbstractItemView::indicator {
+    width: 1.2em;
+    height: 1.2em;
+    image: url(:/icons/Checkbox Off.svg);
+}
+
+QAbstractItemView::indicator:checked {
+    width: 1.2em;
+    height: 1.2em;
+    image: url(:/icons/Checkbox On.svg);
+}
+
+    QAbstractItemView::indicator:indeterminate {
+        width: 1.2em;
+        height: 1.2em;
+        image: url(:/icons/Checkbox Indeterminate.svg);
+    }
+
+
+QSlider::sub-page:horizontal {
+    background-color: #E02873;
+    border: 1px solid ;
+    border-radius: 2px;
+}
+
+QSlider::add-page:horizontal {
+    background-color: #4A4A4F;
+    border: 1px solid ;
+    border-radius: 2px;
+}
+
+QSlider::groove:horizontal {
+        height: 6px;
+        border-radius: 2px;
+}
+
+QSlider::handle:horizontal {
+        background-color: #252528;
+        width: 16px;
+        height: 16px;
+        margin: -5px 6px -5px 6px;
+        border-radius:11px;
+        border: 3px solid #ffffff;
+}
+
+QScrollBar {
+        border: 0px solid;
+        background: #161618;
+        margin: 0px 0px 0px 0px;
+}
+QScrollBar::handle {
+        background: #878792;
+        border-radius: 2px;
+}
+QScrollBar::add-line {
+        background: #161618;
+        subcontrol-origin: margin;
+}
+QScrollBar::sub-line {
+        background: #161618;
+        subcontrol-origin: margin;
+}
+
+
+QScrollBar:vertical {
+        width: 6px;
+}
+QScrollBar::handle:vertical {
+        width: 6px;
+}
+QScrollBar::add-line:vertical {
+        height: 0px;
+        subcontrol-position: bottom;
+}
+QScrollBar::sub-line:vertical {
+        height: 0 px;
+        subcontrol-position: top;
+}
+QScrollBar:horizontal {
+        height: 6px;
+}
+QScrollBar::handle:horizontal {
+        height: 6px;
+}
+QScrollBar::add-line:horizontal {
+        width: 0px;
+        subcontrol-position: right;
+}
+QScrollBar::sub-line:horizontal {
+        background: #161618;
+        width: 0 px;
+        subcontrol-position: left;
+}
+
+QLineEdit {
+    height: 1em;
+    background: #161618;
+    padding: 0.3em 0.3em;
+    /* Border/Normal */
+    border: 1px solid #39393C;
+    border-radius: 4px;
+}
+
+QComboBox {
+    height: 1em;
+    background: #4A4A4F;
+    border: 1px solid #39393C;
+    border-radius: 4px;
+    padding: 0.3em 0.5em;
+}
+
+QComboBox:editable {
+
+}
+QComboBox::drop-down {
+    border: none;
+    background: #4A4A4F;
+}
+
+QComboBox::down-arrow {
+    width: 1em;
+    height: 1em;
+    image: url(:/icons/Chevron Small Down.svg);
+}
+
+QPushButton#closeButton {
+    padding: 0px;
+    background-color: #252528;
+}
+
+QPushButton[class=Primary] {
+    background-color: #E02873;
+}
+QPushButton[class=Primary]:hover {
+    background-color: #D11E67;
+}
+QPushButton[class=Primary]:pressed {
+    background-color: #BB1B5C;
+}
+QPushButton[class=Primary]:disabled {
+    background-color: #94707F;
+}
+
+
+QPushButton[class=Secondary] {
+    color: #15181D;
+    background-color: #D8D8D9;
+}
+QPushButton[class=Secondary]:hover {
+    background-color: #CBCBCD;
+}
+QPushButton[class=Secondary]:pressed {
+    background-color: #BEBEC0;
+}
+
+QPushButton[class=Ghost] {
+    background-color: #252528;
+}
+QPushButton[class=Ghost]:hover {
+    background-color: #161618;
+}
+QPushButton[class=Ghost]:pressed {
+    background-color: #202022;
+}
+QPushButton[class=Ghost]:checked {
+    background-color: #202022;
+}
+
+QPushButton[class=Ghost_blue] {
+    background-color: #252528;
+}
+QPushButton[class=Ghost_blue]:hover {
+    background-color: #161618;
+}
+QPushButton[class=Ghost_blue]:pressed {
+    background-color: #52DCEB;
+    color: black;
+}
+QPushButton[class=Ghost_blue]:checked {
+    background-color: #52DCEB;
+    color: black;
+}
+
+QPushButton[class=Label] {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: #52DCEB;
+    color: black;
+}
+
+
+QTreeView QLineEdit {
+    padding: 0px;
+}
+
+QListView QLineEdit {
+    padding: 0px;
+}
+
+
+QDockWidget {
+    margin: 0px 5px 5px 5px;
+}
+
+QWidget[class="dockTitle"]  {
+    margin-top: 5px;
+}
+
+QWidget[class="LayerControlWidget"] {
+    border-top: 2px solid #0F0F10;
+}

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{50680c1f-1c34-4e18-a7c8-06708a49c9a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\test">
+      <UniqueIdentifier>{b1caea29-2e3e-4fd2-b18c-a832b072b420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine">
+      <UniqueIdentifier>{36a8ae4b-d960-4fd7-8731-e6a7cd4429cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\test\main_test.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\testitf.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\Bmp.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\FImage.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\ImageConv.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\ImageDif.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\FastMeanStd.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="src\test\testitf.h">
+      <Filter>src\test</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\engine\Bmp.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\FImage.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ImageConv.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ImageDif.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\FastMeanStd.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

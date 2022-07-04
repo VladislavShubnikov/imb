@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{6200efca-f104-45ab-83e1-d590c0912295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src\engine">
+      <UniqueIdentifier>{513743ac-25fa-4cd9-ab59-274d3b7b57d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui">
+      <UniqueIdentifier>{d1c545f1-e6d4-4920-aeb4-dfb4e44a7e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\third">
+      <UniqueIdentifier>{b6c58086-b268-4319-a2db-fbedd900ca36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\third\tesseract">
+      <UniqueIdentifier>{90be4164-7e69-4be6-8cdd-8f14e71ca20a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\third\leptonica">
+      <UniqueIdentifier>{e9095068-17ac-4e94-ba71-4e9ec0dca930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\third\mupdf">
+      <UniqueIdentifier>{3632f78b-2b4d-416f-981e-4eb269f2c5cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ui\WidImageBinarizer.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\WidCompare.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="res\WidImageBinarizer.qrc">
+      <Filter>res</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\engine\Bmp.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\FImage.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\ImageConv.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\main.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\RecogRes.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\WidImageBinarizer.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\WidRender.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\ImageDif.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\WidCompare.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\FastMeanStd.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\engine\Bmp.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\FImage.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ImageConv.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\main.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\RecogRes.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\baseapi.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\capi.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\export.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\ltrresultiterator.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\ocrclass.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\osdetect.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\pageiterator.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\publictypes.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\renderer.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\resultiterator.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\unichar.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\tesseract_lib\tesseract\version.h">
+      <Filter>src\third\tesseract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\allheaders.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\alltypes.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\array.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\arrayaccess.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bbuffer.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bilateral.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bmf.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bmfdata.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bmp.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\ccbord.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\colorfill.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\dewarp.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\environ.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\gplot.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\heap.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\imageio.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\jbclass.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\leptwin.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\list.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\morph.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\pix.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\ptra.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\queue.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\rbtree.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\readbarcode.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\recog.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\regutils.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\stack.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\stringcode.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\sudoku.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\leptonica_lib\leptonica\watershed.h">
+      <Filter>src\third\leptonica</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\mupdf_lib\mupdf\fitz.h">
+      <Filter>src\third\mupdf</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\mupdf_lib\mupdf\memento.h">
+      <Filter>src\third\mupdf</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\mupdf_lib\mupdf\pdf.h">
+      <Filter>src\third\mupdf</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\mupdf_lib\mupdf\tessocr.h">
+      <Filter>src\third\mupdf</Filter>
+    </ClInclude>
+    <ClInclude Include="src\third\mupdf_lib\mupdf\ucdn.h">
+      <Filter>src\third\mupdf</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ImageDif.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\FastMeanStd.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="src\ui\WidImageBinarizer.h">
+      <Filter>src\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\WidRender.h">
+      <Filter>src\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\WidCompare.h">
+      <Filter>src\ui</Filter>
+    </QtMoc>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FAE1206A-AFFD-4E23-B7C7-12E43E491C66}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtModules>core;gui;widgets;</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+    <QtInstall>Qt_Qt-5.15.2</QtInstall>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>Qt_Qt-5.15.2</QtInstall>
+    <QtModules>
+    </QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <OutDir>.\</OutDir>
+    <IntDir>out\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_dbg</TargetName>
+    <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <OutputFile>$(ProjectName)_dbg.exe</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);.\src\third;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_);libleptonica.lib;libtesseract.lib;libmupdf.lib;libthirdparty.lib;</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(Qt_INCLUDEPATH_);./src/engine;./src/ui;./src/third/tesseract_lib;./src/third/leptonica_lib;./src/third/mupdf_lib;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <QtUic Include="ui\WidCompare.ui" />
+    <QtUic Include="ui\WidImageBinarizer.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="res\WidImageBinarizer.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\engine\Bmp.cpp" />
+    <ClCompile Include="src\engine\FastMeanStd.cpp" />
+    <ClCompile Include="src\engine\FImage.cpp" />
+    <ClCompile Include="src\engine\ImageConv.cpp" />
+    <ClCompile Include="src\engine\ImageDif.cpp" />
+    <ClCompile Include="src\ui\main.cpp" />
+    <ClCompile Include="src\ui\RecogRes.cpp" />
+    <ClCompile Include="src\ui\WidCompare.cpp" />
+    <ClCompile Include="src\ui\WidImageBinarizer.cpp" />
+    <ClCompile Include="src\ui\WidRender.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\engine\Bmp.h" />
+    <ClInclude Include="src\engine\FastMeanStd.h" />
+    <ClInclude Include="src\engine\FImage.h" />
+    <ClInclude Include="src\engine\ImageConv.h" />
+    <ClInclude Include="src\engine\ImageDif.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\allheaders.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\alltypes.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\array.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\arrayaccess.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bbuffer.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bilateral.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bmf.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bmfdata.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\bmp.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\ccbord.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\colorfill.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\dewarp.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\environ.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\gplot.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\heap.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\imageio.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\jbclass.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\leptwin.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\list.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\morph.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\pix.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\ptra.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\queue.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\rbtree.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\readbarcode.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\recog.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\regutils.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\stack.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\stringcode.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\sudoku.h" />
+    <ClInclude Include="src\third\leptonica_lib\leptonica\watershed.h" />
+    <ClInclude Include="src\third\mupdf_lib\mupdf\fitz.h" />
+    <ClInclude Include="src\third\mupdf_lib\mupdf\memento.h" />
+    <ClInclude Include="src\third\mupdf_lib\mupdf\pdf.h" />
+    <ClInclude Include="src\third\mupdf_lib\mupdf\tessocr.h" />
+    <ClInclude Include="src\third\mupdf_lib\mupdf\ucdn.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\baseapi.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\capi.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\export.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\ltrresultiterator.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\ocrclass.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\osdetect.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\pageiterator.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\publictypes.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\renderer.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\resultiterator.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\unichar.h" />
+    <ClInclude Include="src\third\tesseract_lib\tesseract\version.h" />
+    <ClInclude Include="src\ui\main.h" />
+    <ClInclude Include="src\ui\RecogRes.h" />
+    <QtMoc Include="src\ui\WidCompare.h" />
+    <QtMoc Include="src\ui\WidRender.h" />
+    <QtMoc Include="src\ui\WidImageBinarizer.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
