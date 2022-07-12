@@ -12,7 +12,7 @@ class FImage
 public:
   FImage();
   explicit FImage(int w, int h);
-  FImage(QImage& imageSrc);
+  explicit FImage(QImage& imageSrc);
 
   // copy constructor
   FImage(const FImage& imageSrc);
@@ -46,7 +46,8 @@ public:
   float  getSum2(int xMin, int yMin, int xMax, int yMax) const;
 
   // gauss smooth
-  FImage getGaussSmooth(FImage& imageKernel) const;
+  FImage getGaussSmooth(FImage& imageKernel, float* timeMsec = nullptr) const;
+  FImage getGaussSmoothViaThreads(FImage& imageKernel, float *timeMsec = nullptr) const;
 
 
 private:

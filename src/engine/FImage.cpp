@@ -3,6 +3,9 @@
 //
 
 #include <cassert>
+#include <thread>
+#include <vector>
+#include <list>
 
 #include <QtCore/QDebug>
 
@@ -149,7 +152,8 @@ FImage getGaussianKernel(const int w, const int h, const float sigma) {
   return image;
 }
 
-FImage FImage::getGaussSmooth(FImage &imageKernel) const {
+FImage FImage::getGaussSmooth(FImage &imageKernel, float *timeMsec) const {
+  // init result
   FImage imageDst(*this);
   float *matDst = imageDst.getBits();
   const float *matGauss = imageKernel.getBits();
@@ -161,6 +165,10 @@ FImage FImage::getGaussSmooth(FImage &imageKernel) const {
 
   const int xRad = wGauss / 2;
   const int yRad = hGauss / 2;
+
+  // timing
+  std::chrono::high_resolution_clock::time_point timeS, timeE;
+  timeS = std::chrono::high_resolution_clock::now();
 
   int k = 0; // dest index
   for (int y = 0; y < m_hImage; y++) {
@@ -194,6 +202,109 @@ FImage FImage::getGaussSmooth(FImage &imageKernel) const {
       matDst[k++] = sum;
     } // for x
   } // for y
+
+  // timing
+  timeE = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double, std::milli> timeSpan = timeE - timeS;
+  auto difMs = (float)timeSpan.count();
+  if (timeMsec != nullptr) 
+    *timeMsec = difMs;
+
+  return imageDst;
+}
+
+static void gaussProcessRows( const float *matSrc,
+                  const float *matKernel,
+                  float *matDst, 
+                  const int wSrc, const int hSrc,
+                  const int wKernel,
+                  const int yStart, const int yEnd) {
+  const int xRad = wKernel / 2;
+  int k = yStart * wSrc;  // dest index
+  for (int y = yStart; y < yEnd; y++) {
+    for (int x = 0; x < wSrc; x++) {
+      float sum = 0.0F, sumWeights = 0.0F;
+
+      int m = 0;  // index in kernel
+      for (int dy = -xRad; dy <= xRad; dy++) {
+        int yy = y + dy;
+        if ((yy < 0) || (yy >= hSrc)) {
+          m += wKernel;
+          continue;
+        }
+        const int yyOff = yy * wSrc;
+        for (int dx = -xRad; dx <= xRad; dx++) {
+          int xx = x + dx;
+          if ((xx < 0) || (xx >= wSrc)) {
+            m++;
+            continue;
+          }
+          float vImage = matSrc[xx + yyOff];
+          float we = matKernel[m];
+          m++;
+          sum += vImage * we;
+          sumWeights += we;
+
+        }  // for dx
+      }    // for dy
+      // normalize sum
+      sum = sum / sumWeights;
+      matDst[k++] = sum;
+    }  // for x
+
+  } // for y, all rows
+} // end process rows
+
+FImage FImage::getGaussSmoothViaThreads(FImage &imageKernel,
+                                        float *timeMsec) const {
+  // init result image
+  FImage imageDst(*this);
+
+  // timing
+  std::chrono::high_resolution_clock::time_point timeS, timeE;
+  timeS = std::chrono::high_resolution_clock::now();
+
+
+  const int numCpuCores = std::thread::hardware_concurrency();
+  const int numPrc = (numCpuCores - 2 >= 1) ? numCpuCores - 2: 1;
+  // divide height by numPrc and 
+  // use parallel threads to speed up
+  if (numPrc >= 2) {
+    const int numParts = numPrc;
+    float *matSrc = m_bits;
+    float *matDst = imageDst.getBits();
+    float *matKernel = imageKernel.getBits();
+    const int wSrc = m_wImage;
+    const int hSrc = m_hImage;
+    const int wKernel = imageKernel.width();
+
+    std::vector<std::thread> vecThreads;
+
+    int yStart = 0;
+    for (int i = 0; i < numParts; i++) {
+      // calculate end of image part (low row)
+      const int yEnd = (i + 1) * m_hImage / numParts;
+      std::thread th(gaussProcessRows, matSrc, matKernel, matDst, wSrc, hSrc,
+                     wKernel, yStart, yEnd);
+      vecThreads.push_back(std::move(th));
+      //  next part of image
+      yStart = yEnd;
+    }
+    // run threads and process all image parts simultaneously
+    for (auto &t: vecThreads) {
+      t.join();
+    }
+  } else {
+    // in case of single - thread PC, use default, slow function
+    return this->getGaussSmooth(imageKernel, timeMsec);
+  }
+
+  // timing
+  timeE = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double, std::milli> timeSpan = timeE - timeS;
+  auto difMs = (float)timeSpan.count();
+  if (timeMsec != nullptr)
+    *timeMsec= difMs;
 
   return imageDst;
 }

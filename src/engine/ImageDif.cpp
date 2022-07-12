@@ -4,12 +4,19 @@
 
 #include "ImageDif.h"
 
+#define USE_THREADS
+
 void ImageDiff ::getDiff(const FImage &imageA, const FImage &imageB,
                          float distBarrier, FImage &imageDiff) {
 
   FImage imageKernel = getGaussianKernel(7, 7, 0.4F);
-  FImage smoothA = imageA.getGaussSmooth(imageKernel);
-  FImage smoothB = imageB.getGaussSmooth(imageKernel);
+  #ifdef USE_THREADS
+    FImage smoothA = imageA.getGaussSmoothViaThreads(imageKernel);
+    FImage smoothB = imageB.getGaussSmoothViaThreads(imageKernel);
+  #else
+    FImage smoothA = imageA.getGaussSmooth(imageKernel);
+    FImage smoothB = imageB.getGaussSmooth(imageKernel);
+  #endif
 
   #ifdef DEEP_DEBUG
     QImage imgA = smoothA.getQImage();

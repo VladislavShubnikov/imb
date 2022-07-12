@@ -27,6 +27,7 @@ private slots:
   void testFImage();
   void testBinarize();
   void testGauss();
+  void testGaussThreads();
   void testIntegralSum3x3();
   void testIntegralSum();
   void testIntegralSum2();

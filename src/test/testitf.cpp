@@ -94,6 +94,40 @@ void TestInterface::testGauss() {
   #endif
 }
 
+void TestInterface::testGaussThreads() {
+  const int w = 1024;
+  const int h = 1024;
+  FImage imageSrc(w, h);
+  const int numPixels = w * h;
+  float *pixels = imageSrc.getBits();
+  const float colBack = 255.0F;
+  const float colObj = 0.0f;
+
+  for (int i = 0; i < numPixels; i++) {
+    pixels[i] = colBack;
+  }  //
+  const int xc = w / 2;
+  const int yc = h / 2;
+  pixels[xc + yc * w] = colObj;
+  pixels[xc + yc * w + 1] = colObj;
+  pixels[xc + yc * w - 1] = colObj;
+  pixels[xc + yc * w + w] = colObj;
+  pixels[xc + yc * w - w] = colObj;
+
+  FImage imageKernel = getGaussianKernel(9, 9, 1.2F);
+
+  float timeSlow, timeFast;
+
+  FImage imageSmooth = imageSrc.getGaussSmooth(imageKernel, &timeSlow);
+  FImage imageSmoothThr = imageSrc.getGaussSmoothViaThreads(imageKernel, &timeFast);
+
+  const float speedUpTimes = timeSlow / timeFast;
+  QVERIFY(speedUpTimes > 2.5f);
+
+  float *pixelsDst = imageSmooth.getBits();
+  QVERIFY((int)pixelsDst[0] == (int)colBack);
+}
+
 void TestInterface::testIntegralSum3x3() {
   const int w = 3;
   const int h = 3;

@@ -29,6 +29,10 @@
   extern "C" {
 #endif
 
+void set_leptonica_mem(fz_context *ctx);
+void clear_leptonica_mem(fz_context *ctx);
+
+
 void *ocr_init(fz_context *ctx, const char *lang, const char *datadir);
 
 void ocr_fin(fz_context *ctx, void *api);

@@ -508,6 +508,9 @@ void WidImageBinarizer::onPushButtonBinarize()
   m_timeClickButton = QTime::currentTime();
 }
 
+
+// #define USE_MUPDF
+
 void WidImageBinarizer::ocrInit() {
   // Initialize tesseract-ocr with English, without specifying tessdata path
   //
@@ -517,10 +520,35 @@ void WidImageBinarizer::ocrInit() {
 
   const char* dataPath = "data\\models\\";
   const char* lang = "rus";
-  m_ocrApi = ocr_init(m_ctxFz, lang, dataPath);
+
+  #ifdef USE_MUPDF
+    m_ocrApi = ocr_init(m_ctxFz, lang, dataPath);
+  #else
+  set_leptonica_mem(m_ctxFz);
+
+
+    tesseract::TessBaseAPI* api;
+    m_ocrApi = api = new tesseract::TessBaseAPI();
+    api->Init(dataPath, 
+      0, 
+      lang, 
+      tesseract::OcrEngineMode::OEM_LSTM_ONLY,
+      NULL, 0,
+      NULL, NULL,
+      false, // set_only_non_debug_params
+      NULL);
+  #endif
 }
+
 void WidImageBinarizer::ocrDestroy() { 
+#ifdef USE_MUPDF
   ocr_fin(m_ctxFz, m_ocrApi); 
+#else
+  tesseract::TessBaseAPI* api = (tesseract::TessBaseAPI*)m_ocrApi;
+  api->End();
+  delete api;
+  clear_leptonica_mem(m_ctxFz);
+#endif
 }
 
 
